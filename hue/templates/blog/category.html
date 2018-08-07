@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+{% load staticfiles%}
+{%block content%}
+<div class="container">
+		<h2 class="center"></h2>
+		<hr>
+	<div class="row">
+	
+	{%for p in post%}
+    <!-- Grid column -->
+    <div class="col-md-4 mb-4">
+      <div class="card card-image" style="background-image: url('{{p.image.url}}');">
+        <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4 rounded">
+          <div>
+            <h class="red-text">
+			    <strong class="bb">{{p.category}}</strong>
+            </h5>
+            <h3 class="py-3 font-weight-bold white-text">
+             <strong>{{p.title}}</strong>
+            </h3>
+            <p class="pb-3 white-text">{{p.story | truncatewords:"20"}}</p>
+            <a class="btn btn-danger btn-rounded btn-md" href="{%url 'blog:view' pk=p.pk %}"><i class="fa left"></i> Read More</a>
+          </div>
+        </div>
+      </div>
+		</div>
+	{%endfor%}
+    <!-- Grid column -->
+
+
+<hr style="width: 90%">
+
+</div>
+</div>
+{%endblock%}

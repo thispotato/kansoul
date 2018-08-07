@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{%load staticfiles%}
+{%block content%}
+
+<div style="width: 100% ; padding-top: 80px;"></div>
+<div class=" col-md-5 main main-raised" style="margin: 0 auto;">
+	<div class="col-md-6" style="margin: 0 auto;" >
+	<form method="POST" >
+		{%csrf_token%}
+		<img src="{% static 'bucket.jpeg'%}" style="border-radius: 50%; height: 100px; width: 100px; margin-top: -50px; margin-left: 50px">
+		<h2 class="center mr-auto ml-auto">Login</h2>
+		<p for="username">Username</p>
+		<div id="username">{{form.username}}</div>
+
+		<p for="username">Password</p>
+		<div id="username">{{form.password}}</div>
+
+	    <button type="submit" class="btn btn-large btn-danger " style="position: absolute; left: 30%;"><h6>Login</h6></button><br><br><br><br>
+
+	    <p class="center" style="font-size: 18px;padding-bottom: 20px;">Not a member? Register <a href="">here.</a></p>
+	</form>
+</div>
+</div>
+{%endblock%}
+{%block footer%}{%endblock%}

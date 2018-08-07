@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{%load staticfiles%}
+
+{%block content%}
+<div class="container" style="padding-top: 50px; margin: 0, auto;">
+	<div class="col-md-8">
+		<form method="POST">
+			{%csrf_token%}
+			<h6 for="title">Title</h6>
+			<div id="title">{{form.title}}</div>
+
+			<h6 >Story</h6>
+			<div>{{form.story}}</div>
+
+			{{form.category}}
+			{{form.author}}
+
+			<button type="submit" class="btn-large btn-danger">Submit Changes</button>
+		</form>
+	</div>
+</div>
+{%endblock%}
+{%block footer%}{% endblock%}

@@ -1,0 +1,204 @@
+{%load staticfiles%}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'materialize.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'boot.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'mdb.css'%}">
+  <link rel="stylesheet" type="text/css" href="{% static 'material-kit.css'%}">
+	<script src="{% static 'jquery.min.js'%}"></script>
+    <script src="{% static 'bootstrap.min.js'%}"></script>
+    <script src="{% static 'rellax.js'%}"></script>
+
+	<style>
+		@font-face{
+			font-family: bebas;
+			src:url("{%static 'BebasNeue.otf'%}");
+		}
+
+		.bb{
+			font-family: bebas;
+		}
+
+    .flex-container{
+      width: 78%;
+      margin: 0 auto;
+    }
+    .change-font{
+        font-size: 11em;
+    }
+
+    .flex-container-user{
+      width: 88%;
+      height: 400px;
+      margin: 0 auto;
+    }
+
+    image-position{
+       margin-top: -50px; height: 120px; width: 120px;
+    }
+    
+    .img-gradient {
+            position:relative;
+            display:inline-block;
+        }
+
+        .img-gradient:after {
+            content:'';
+            position:absolute;
+            left:0; top:0;
+            width:100%; height:100%;
+            display:inline-block;
+            background: -moz-linear-gradient(top, rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.5) 100%); /* FF3.6+ */
+
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(220, 66, 37, 0.5)), color-stop(100%,rgba(0,47,75,0.5))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%); /* Chrome10+,Safari5.1+ */
+
+            background: -o-linear-gradient(top, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%); /* Opera 11.10+ */
+
+            background: -ms-linear-gradient(top, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%); /* IE10+ */
+
+            background: linear-gradient(to bottom, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%); /* W3C */
+            
+            }
+            .img-gradient img{
+                display:block;
+            }
+
+            .img-gradient-overlay { /* FF3.6+ */ /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.5) 100%);
+                background: -o-linear-gradient(rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.5) 100%);
+                background: linear-gradient(rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.5) 100%); 
+                border-radius: .3rem;
+            }
+
+    @media screen and (max-width:480px){
+      .flex-container{
+      width: 96%;
+      margin: 0 auto;
+      }
+
+      .flex-container-user{
+      width: 96%;
+      height: 260px;
+      margin: 0 auto;
+    }
+
+    .change-font{
+        font-size:2em;
+    }
+    }
+	</style>
+</head>
+<body>
+<nav class="white fixed-top">
+	<div class="container">
+		<a href="{%url 'blog:index'%}" class="bb header" style="font-size: 26px; color: black;">Blog</a>
+		<ul class="hide-on-small-and-down right">
+			<li><a href="" class="bb" style="color: black;">New</a></li>
+			<li><a href="#" class="bb" style="color: black;">Categories</a></li>
+			{%if user.is_authenticated%}
+			<li><a href="{%url 'logout'%}" class="bb" style="color: black;">Logout</a></li>
+            {%else%}
+			<li><a href="{%url 'login'%}" class="bb" style="color: black;">login</a></li>
+            <li><a href="" class="bb" style="color: black;">register</a></li>
+			{%endif%}
+		</ul>
+	</div>
+</nav>
+<div style="width: 100%; padding-top: 45px;"></div>
+
+
+{%block content%}
+
+
+{%endblock%}
+
+{%block footer%}
+<footer class="page-footer font-small white black-text pt-4 mt-4">
+      
+          <!--Footer Links-->
+          <div class="container text-center text-md-left">
+
+          <div id="map-container-8" class="z-depth-1-half map-container mb-4" style="height: 200px"></div>
+
+      
+              <!-- Footer links -->
+              <div class="row text-center text-md-left mt-3 pb-3">
+      
+                  <!--First column-->
+                  <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                      <h6 class="mb-4 font-weight-bold bb black-text">Blog</h6>
+                      <p>Latest in News</p>
+                  </div>
+                  <!--/.First column-->
+      
+                  <hr class="w-100 clearfix d-md-none">
+      
+                  <!--Second column-->
+                  <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 black-text">
+                      <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+                      <p><a href="#!" class="black-text">Gallery</a></p>
+                      <p><a href="#!" class="black-text">About Us</a></p>
+                      <p><a href="#!" class="black-text">KDF</a></p>
+                      <p><a href="#!" class="black-text">Blog</a></p>
+                  </div>
+                  <!--/.Second column-->
+      
+                  <hr class="w-100 clearfix d-md-none">
+      
+                  <!--Third column-->
+                  <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                      <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+                      
+                      <p><a href="mailto:jeicanjiko@gmail.com"><i class="fa fa-envelope mr-3 black-text"></i>thekansoul@gmail.com</a></p>
+                      
+                  </div>
+                  <!--/.Third column-->
+      
+                  <hr class="w-100 clearfix d-md-none">
+      
+                  
+      
+              </div>
+              <!-- Footer links -->
+              <hr>
+                      
+      
+              <div class="row py-3 d-flex align-items-center">
+      
+                  <!--Grid column-->
+                  <div class="col-md-8 col-lg-8">
+      
+                      <!--Copyright-->
+                      <p class="text-center text-md-left black-text bb"> 2018 Copyright: the kansoul </p>
+                      <!--/.Copyright-->
+      
+                  </div>
+                  <!--Grid column-->
+      
+                  <!--Grid column-->
+                  <div class="col-md-4 col-lg-4 ml-lg-0">
+      
+                      <!--Social buttons-->
+                      <div class="text-center text-md-right">
+                          <ul class="list-unstyled list-inline">
+                               <li class="list-inline-item"><a class="btn-floating white"><i class="fa fa-facebook"></i></a></li>
+                              <li class="list-inline-item"><a class="btn-floating white"><i class="fa fa-share-alt"></i></a></li>
+                              <li class="list-inline-item"><a class="btn-floating white" href="#!"><i class="fa fa-envelope"></i></a></li>
+                          </ul>
+                      </div>
+                      <!--/.Social buttons-->
+      
+                  </div>
+                  <!--Grid column-->
+      
+              </div>
+      
+          </div></footer>
+{%endblock%}
+</body>
+</html>
+

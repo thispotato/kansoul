@@ -1,0 +1,108 @@
+{%extends 'base.html'%}
+{%load staticfiles%}
+
+{%block content%}
+	
+	  <div style="width: 98% ; margin: 0 auto; max-width: 1280px;">
+	  	<div>
+			<img src="{% static 'pop.jpg' %}"  style="height: 70%; width: 100%; z-index: -100;" alt="">
+	  		<div class="bb white-text change-font">
+				  <div class="bb r" data-rellax-speed=4 style="position: absolute; left: 20%; top: 40%;">b</div>
+				  <div class="bb r" data-rellax-speed=5 style="position: absolute; left: 25%; top: 40%;">l</div>
+				  <div class="bb r" data-rellax-speed=3 style="position: absolute; left: 30%; top: 40%;">o</div>
+				  <div class="bb r" data-rellax-speed=7 style="position: absolute; left: 35%; top: 40%;">g</div>
+			  </div>
+	  		<h6 class="center white-text"></h6>
+	  	</div>
+	  </div>
+
+
+
+<div style="width: 100% ; height: 10px"></div>
+
+<hr style="width: 90%">
+<div style="width: 100% ; height: 8px"></div>
+<div class="container">
+	<h2 >Categories</h2>
+	<hr>
+	<div class="row">
+		{%for c in category%}
+			<!-- <div class="col-md-3">
+				<div  class="card card-cascade wider mt-4">
+					<div  class="view overlay hm-white-slight waves-light">
+						<a href=""><img class="img-fluid" src="{{c.image.url}}"></a>
+					</div>
+					<div  class="card-body text-center">
+					<h4 class="card-title mb-3 font-bold bb"><a href="#!" class="red-text">{{c.title}}</a></h4>
+					</div>
+				</div>
+			</div> -->
+			<div class="col-md-3 col-sm-12">
+				<div class="card card-image" style="background-image: url('{{c.image.url}}'); background-size: cover;">
+					<div class="text-white text-center d-flex align-items-center img-gradient-overlay py-5 px-4">
+						<div class="card-body">
+							<h3 class="card-title pt-2 bb white-text" ><strong>{{c.title}}</strong></h3>
+								<a href ="{%url 'blog:category' pk=c.id%}" class="bb btn btn-deep-orange waves-effect waves-light">View</a>
+					</div>
+				</div>
+				</div>
+			</div>			
+		{%endfor%}
+	</div>
+	</div>
+</div>
+
+
+<div class="container">
+		<h2 >New Posts</h2>
+		<hr>
+		<div class="row">
+		
+		{%for p in post%}
+	
+		<!-- Grid column -->
+		<div class="col-md-4 mb-4">
+		  <div class="card card-image" style="background-image: url('{{p.image.url}}');">
+			<div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4 rounded">
+			  <div>
+				<h5 class="red-text">
+				  
+				  <strong class="bb">{{p.category}}</strong>
+				</h5>
+				<h3 class="py-3 font-weight-bold">
+				  <strong>{{p.title}}</strong>
+				</h3>
+				<p class="pb-3">{{p.story | truncatewords:"10"}}
+				</p>
+				<a class="btn btn-danger btn-rounded btn-md" href="{% url 'blog:view' pk=p.pk%}"><i class="fa left"></i> Read More</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<!-- Grid column -->
+
+		{%endfor%}
+	<hr style="width: 90%">
+	
+	</div>
+	</div>
+</div>
+
+<script>
+	var rel = new Rellax('.r')
+	
+</script>
+{%endblock%}
+
+			<div class="col-md-4">
+				<div  class="card card-cascade wider mt-4">
+					<div  class="view overlay hm-white-slight waves-light">
+						<img  class="img-fluid" src="">
+					</div>
+					<div  class="card-body text-center">
+					<h4  class="card-title mb-3 font-bold"></h4>
+					<h6  class="orange-text bb"><strong ></strong></h6>
+					<p  class="card-text"></p>
+					</div>
+				</div>
+			</div>
